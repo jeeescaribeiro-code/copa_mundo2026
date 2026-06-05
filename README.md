@@ -1,6 +1,7 @@
 <div align="center">
 
 # Copa em Dados 2026
+surpresa: [(clique aqui para abrir!)](https://jeeescaribeiro-code.github.io/copa_mundo2026/)
 ### Ciência de Dados, Machine Learning e previsões para a Copa do Mundo FIFA 2026
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
@@ -12,7 +13,7 @@
 
 Projeto end-to-end que transforma dados históricos da Copa do Mundo em análise exploratória, engenharia de variáveis, modelos preditivos e um site visual para apresentar previsões da fase de grupos de 2026.
 
-[Documentação Técnica](documentacao.md)
+[Documentação Técnica](documentacao.md) • [Galeria de Insights](interpretacao.md) • [Site](https://jeeescaribeiro-code.github.io/copa_mundo2026/)
 
 </div>
 
@@ -21,12 +22,10 @@ Projeto end-to-end que transforma dados históricos da Copa do Mundo em análise
 ## Visão Geral
 
 Este projeto foi criado para demonstrar um pipeline completo de **Ciência de Dados aplicada ao futebol**.
+
 A proposta não é “adivinhar futebol”, é construir uma análise: entender dados, criar variáveis, treinar modelos, avaliar métricas e explicar limitações.
 
 ![Fluxograma do pipeline](assets/fluxograma_pipeline.svg)
-
-
-Escopo:
 
 | Área | O que foi aplicado |
 |---|---|
@@ -38,19 +37,15 @@ Escopo:
 
 **Palavras-chave:** `Python`, `SQL`, `SQLite`, `pandas`, `NumPy`, `Machine Learning`, `Data Science`, `Data Analytics`, `ETL`, `EDA`, `Feature Engineering`, `FIFA Ranking`, `API Integration`, `Linear Regression`, `Logistic Regression`, `Classification`, `Cross-Validation`, `Model Evaluation`, `R2`, `RMSE`, `MAE`, `Accuracy`, `F1 Score`, `ROC AUC`, `Predictive Analytics`, `Statistical Analysis`, `HTML`, `CSS`, `JavaScript`.
 
-## O Projeto
+## Perguntas do Projeto
 
-usa dois modelos porque responde duas perguntas diferentes:
+O projeto usa dois modelos porque responde duas perguntas diferentes:
 
 | Pergunta | Tipo de problema | Modelo usado | Saída |
 |---|---|---|---|
 | Quantos gols a seleção mandante tende a marcar? | Regressão | Regressão linear | `pred_home` |
 | A seleção mandante vence ou não vence? | Classificação binária | Regressão logística | `prob_home_win` |
 
-Em linguagem simples:
-
-- **Regressão linear:** estima um número de gols.
-- **Regressão logística:** estima uma probabilidade de vitória.
 
 ## Como Funciona
 
@@ -87,7 +82,7 @@ Em linguagem simples:
 | F1 no teste | 0.7359 | Métrica balanceada da classificação |
 | ROC AUC no teste | 0.7635 | Boa capacidade de separação para um baseline interpretável |
 
-**Leitura crítica:** prever placar exato é mais difícil do que prever tendência de resultado. O R² baixo da regressão linear mostra uma limitação real do problema, enquanto a regressão logística responde melhor à pergunta de vitória ou não vitória.
+**Leitura:** prever placar exato é mais difícil do que prever tendência de resultado. O R² baixo da regressão linear mostra uma limitação real do problema, enquanto a regressão logística responde melhor à pergunta de vitória ou não vitória.
 
 ## Visualizações
 
@@ -125,25 +120,36 @@ fase_knockout
 
 Variáveis pós-jogo, como decisão por pênaltis, não entram no modelo porque gerariam **vazamento de informação**.
 
+## Estrutura do Repositório
+
+```text
+copa_mundo/
+|-- dataset/                              # Dados e tabela oficial da Copa 2026
+|-- ranking/                              # Rankings FIFA históricos e ranking 2026
+|-- output/                               # CSVs, métricas, modelos, imagens e predições
+|-- scripts/                              # Scripts auxiliares de ranking, treino, site e PDF
+|-- site/                                 # Site em HTML, CSS e JavaScript
+|-- assets/fluxograma_pipeline.svg        # Fluxograma do pipeline
+|-- ingestao_dados.py                     # ETL: SQL -> SQLite -> CSV
+|-- eda.py                                # Análise exploratória e visualizações
+|-- limpeza.py                            # Limpeza, padronização e features históricas
+|-- features.py                           # Seleção e validação de features
+|-- modelo.py                             # Experimentos de modelagem
+|-- README.md
+|-- DOCUMENTACAO_TECNICA.md
+```
+
 ## Site
 
 O projeto inclui um site em HTML, CSS e JavaScript puro para divulgar a análise como portfólio. Ele mostra o pipeline, as métricas, os dois modelos e as predições da Copa 2026.
 
-Arquivos:
-
-```text
-site/index.html
-site/styles.css
-site/script.js
-```
 
 ## Documentação
 
 | Arquivo | Conteúdo |
 |---|---|
 | [documentacao.md](documentacao.md) | Explicação completa do projeto, variáveis, modelos, métricas e decisões |
-| [interpretacao.md](interpretacao.md) | Interpretação dos gráficos gerados (pasta output) |
-
+| [interpretacao.md](interpretacao.md) | Galeria com interpretação das imagens geradas no projeto |
 
 ## Sobre o Resultado
 
