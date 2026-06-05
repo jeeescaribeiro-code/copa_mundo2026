@@ -1,2 +1,159 @@
-# copa_mundo2026
-Projeto de portfólio: previsões da Copa 2026 com Python, SQL e Machine Learning
+<div align="center">
+
+# Copa em Dados 2026
+### Ciência de Dados, Machine Learning e previsões para a Copa do Mundo FIFA 2026
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-025E8C?style=for-the-badge)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![Pandas](https://img.shields.io/badge/pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-009B3A?style=for-the-badge)
+![JavaScript](https://img.shields.io/badge/JavaScript-FFDF00?style=for-the-badge&logo=javascript&logoColor=111)
+
+Projeto end-to-end que transforma dados históricos da Copa do Mundo em análise exploratória, engenharia de variáveis, modelos preditivos e um site visual para apresentar previsões da fase de grupos de 2026.
+
+[Documentação Técnica](documentacao.md)
+
+</div>
+
+---
+
+## Visão Geral
+
+Este projeto foi criado para demonstrar um pipeline completo de **Ciência de Dados aplicada ao futebol**.
+A proposta não é “adivinhar futebol”, é construir uma análise: entender dados, criar variáveis, treinar modelos, avaliar métricas e explicar limitações.
+
+![Fluxograma do pipeline](assets/fluxograma_pipeline.svg)
+
+
+Escopo:
+
+| Área | O que foi aplicado |
+|---|---|
+| Engenharia de Dados | ETL, SQL, SQLite, organização de CSVs e pipeline reproduzível |
+| Análise de Dados | EDA, estatísticas descritivas, visualizações e leitura crítica |
+| Machine Learning | Regressão linear, regressão logística, validação cruzada e métricas |
+| Feature Engineering | Histórico das seleções, ranking FIFA, médias de gols e variáveis pré-jogo |
+| Comunicação | README, documentação técnica, PDF estatístico e site em HTML/CSS/JS |
+
+**Palavras-chave:** `Python`, `SQL`, `SQLite`, `pandas`, `NumPy`, `Machine Learning`, `Data Science`, `Data Analytics`, `ETL`, `EDA`, `Feature Engineering`, `FIFA Ranking`, `API Integration`, `Linear Regression`, `Logistic Regression`, `Classification`, `Cross-Validation`, `Model Evaluation`, `R2`, `RMSE`, `MAE`, `Accuracy`, `F1 Score`, `ROC AUC`, `Predictive Analytics`, `Statistical Analysis`, `HTML`, `CSS`, `JavaScript`.
+
+## O Projeto
+
+usa dois modelos porque responde duas perguntas diferentes:
+
+| Pergunta | Tipo de problema | Modelo usado | Saída |
+|---|---|---|---|
+| Quantos gols a seleção mandante tende a marcar? | Regressão | Regressão linear | `pred_home` |
+| A seleção mandante vence ou não vence? | Classificação binária | Regressão logística | `prob_home_win` |
+
+Em linguagem simples:
+
+- **Regressão linear:** estima um número de gols.
+- **Regressão logística:** estima uma probabilidade de vitória.
+
+## Como Funciona
+
+1. **Ingestão:** scripts SQL históricos são convertidos para SQLite e CSV.
+2. **EDA:** gráficos e estatísticas exploram gols, vitórias, empates, fases e seleções.
+3. **Limpeza:** nomes de seleções são padronizados e colunas numéricas são tratadas.
+4. **Feature engineering:** são criadas variáveis pré-jogo, como aproveitamento histórico, média de gols, experiência e ranking FIFA temporal.
+5. **Seleção de features:** Pearson, RFECV, LassoCV e VIF ajudam a escolher variáveis relevantes.
+6. **Modelagem:** regressão linear estima `home_score`; regressão logística estima `home_win`.
+7. **Predição:** a tabela oficial da Copa 2026 é combinada com as features para gerar `output/predicoes_2026.csv`.
+8. **Comunicação:** o site em HTML, CSS e JavaScript apresenta os resultados de forma visual.
+
+## Resultados
+
+### Regressão Linear: previsão de gols
+
+| Métrica | Resultado | Interpretação |
+|---|---:|---|
+| R² médio em validação cruzada | 0.0857 | Explica uma parte pequena da variação dos gols |
+| RMSE médio em validação cruzada | 1.5131 | Erro médio com maior penalização para erros grandes |
+| MAE médio em validação cruzada | 1.1588 | Erro absoluto médio em gols |
+| R² no teste | 0.0581 | Baixo, coerente com a imprevisibilidade de placares |
+| RMSE no teste | 1.6012 | Erro no conjunto de teste |
+| MAE no teste | 1.2033 | Erro médio aproximado em gols |
+
+### Regressão Logística: chance de vitória do mandante
+
+| Métrica | Resultado | Interpretação |
+|---|---:|---|
+| Accuracy média em validação cruzada | 0.6971 | Proporção média de classificações corretas |
+| F1 médio em validação cruzada | 0.7502 | Equilíbrio entre precisão e recall |
+| ROC AUC médio em validação cruzada | 0.7327 | Separação entre vitória e não vitória |
+| Accuracy no teste | 0.6839 | Desempenho no conjunto de teste |
+| F1 no teste | 0.7359 | Métrica balanceada da classificação |
+| ROC AUC no teste | 0.7635 | Boa capacidade de separação para um baseline interpretável |
+
+**Leitura crítica:** prever placar exato é mais difícil do que prever tendência de resultado. O R² baixo da regressão linear mostra uma limitação real do problema, enquanto a regressão logística responde melhor à pergunta de vitória ou não vitória.
+
+## Visualizações
+
+### Análise exploratória
+
+![Visão geral da EDA](output/eda_visao_geral.png)
+
+### Avaliação do modelo
+
+![Avaliação do modelo](output/avaliacao_modelo.png)
+
+## Variáveis Principais
+
+As variáveis finais usam apenas informações disponíveis antes da partida:
+
+```text
+aprov_hist_home
+diff_aprov_hist
+media_gols_pro_hist_home
+media_gols_contra_hist_away
+diff_media_gols_pro_hist
+diff_media_gols_contra_hist
+diff_saldo_medio_hist
+partidas_hist_home
+diff_partidas_hist
+ranking_home
+diff_ranking
+ranking_points_home
+diff_ranking_points
+ranking_available_home
+ranking_available_away
+fase_ordinal
+fase_knockout
+```
+
+Variáveis pós-jogo, como decisão por pênaltis, não entram no modelo porque gerariam **vazamento de informação**.
+
+## Site
+
+O projeto inclui um site em HTML, CSS e JavaScript puro para divulgar a análise como portfólio. Ele mostra o pipeline, as métricas, os dois modelos e as predições da Copa 2026.
+
+Arquivos:
+
+```text
+site/index.html
+site/styles.css
+site/script.js
+```
+
+## Documentação
+
+| Arquivo | Conteúdo |
+|---|---|
+| [documentacao.md](documentacao.md) | Explicação completa do projeto, variáveis, modelos, métricas e decisões |
+| [interpretacao.md](interpretacao.md) | Interpretação dos gráficos gerados (pasta output) |
+
+
+## Sobre o Resultado
+
+O projeto não promete acertar futebol com perfeição. Ele mostra UMA abordagem: dados organizados, variáveis explicáveis, validação, métricas e limitações.
+
+---
+
+<div align="center">
+
+**Copa em Dados 2026**  
+Projeto de portfólio em Ciência de Dados, Machine Learning e visualização de dados.
+
+</div>
