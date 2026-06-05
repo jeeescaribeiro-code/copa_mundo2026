@@ -18,7 +18,7 @@
 
 Projeto end-to-end que transforma dados históricos da Copa do Mundo em análise exploratória, engenharia de variáveis, modelos preditivos e um site visual para apresentar previsões da fase de grupos de 2026.
 
-[🔗 Abrir o Site](https://jeeescaribeiro-code.github.io/copa_mundo2026/) &nbsp;•&nbsp; [📄 Documentação Técnica](documentacao.md) &nbsp;•&nbsp; [🖼️ Galeria de Insights](interpretacao.md)
+[Abrir o Site](https://jeeescaribeiro-code.github.io/copa_mundo2026/) &nbsp;•&nbsp; [Documentação Técnica](documentacao.md) &nbsp;•&nbsp; [Galeria de Insights](interpretacao.md)
 
 </div>
 
