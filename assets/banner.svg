@@ -1,0 +1,129 @@
+<svg width="680" height="220" viewBox="0 0 680 220" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>Copa em Dados 2026</title>
+  <desc>Banner animado do projeto Copa em Dados 2026 — chute, bola voando e dados surgindo</desc>
+
+  <defs>
+    <style>
+      @keyframes ballFly {
+        0%   { transform: translate(0,0) scale(1); }
+        100% { transform: translate(-200px,-110px) scale(0.85); }
+      }
+      @keyframes trailDraw {
+        0%   { stroke-dashoffset: 320; opacity: 0; }
+        15%  { opacity: 0.7; }
+        100% { stroke-dashoffset: 0; opacity: 0.7; }
+      }
+      @keyframes dotPop {
+        0%   { opacity: 0; transform: scale(0); }
+        70%  { transform: scale(1.3); }
+        100% { opacity: 1; transform: scale(1); }
+      }
+      @keyframes trendDraw {
+        0%   { stroke-dashoffset: 200; opacity: 0; }
+        100% { stroke-dashoffset: 0; opacity: 0.5; }
+      }
+      @keyframes badgeFade {
+        0%   { opacity: 0; transform: translateY(6px); }
+        100% { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes titleSlide {
+        0%   { opacity: 0; transform: translateX(-12px); }
+        100% { opacity: 1; transform: translateX(0); }
+      }
+
+      .ball-g  { animation: ballFly 1s cubic-bezier(.4,0,.2,1) 0.2s both; }
+      .trail   { stroke-dasharray: 320; stroke-dashoffset: 320; animation: trailDraw 1s ease-out 0.1s both; }
+      .trend   { stroke-dasharray: 200; stroke-dashoffset: 200; animation: trendDraw 0.7s ease-out 2.1s both; }
+
+      .dot1 { animation: dotPop 0.35s ease-out 1.3s  both; opacity:0; transform-origin:500px 80px;  }
+      .dot2 { animation: dotPop 0.35s ease-out 1.45s both; opacity:0; transform-origin:520px 65px;  }
+      .dot3 { animation: dotPop 0.35s ease-out 1.55s both; opacity:0; transform-origin:545px 90px;  }
+      .dot4 { animation: dotPop 0.35s ease-out 1.65s both; opacity:0; transform-origin:562px 72px;  }
+      .dot5 { animation: dotPop 0.35s ease-out 1.75s both; opacity:0; transform-origin:578px 88px;  }
+      .dot6 { animation: dotPop 0.35s ease-out 1.85s both; opacity:0; transform-origin:598px 60px;  }
+      .dot7 { animation: dotPop 0.35s ease-out 1.95s both; opacity:0; transform-origin:615px 80px;  }
+      .dot8 { animation: dotPop 0.35s ease-out 2.05s both; opacity:0; transform-origin:635px 68px;  }
+
+      .badge1 { animation: badgeFade 0.45s ease-out 2.25s both; opacity:0; }
+      .badge2 { animation: badgeFade 0.45s ease-out 2.45s both; opacity:0; }
+      .badge3 { animation: badgeFade 0.45s ease-out 2.65s both; opacity:0; }
+      .title-g { animation: titleSlide 0.7s ease-out 0.05s both; opacity:0; }
+    </style>
+    <clipPath id="bc"><rect x="0" y="0" width="680" height="220" rx="14"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#bc)">
+    <!-- Background -->
+    <rect x="0" y="0" width="680" height="220" fill="#0d2218"/>
+    <!-- Pitch stripes -->
+    <rect x="0"   y="0" width="68" height="220" fill="#0f2619" opacity="0.5"/>
+    <rect x="136" y="0" width="68" height="220" fill="#0f2619" opacity="0.5"/>
+    <rect x="272" y="0" width="68" height="220" fill="#0f2619" opacity="0.5"/>
+    <rect x="408" y="0" width="68" height="220" fill="#0f2619" opacity="0.5"/>
+    <rect x="544" y="0" width="68" height="220" fill="#0f2619" opacity="0.5"/>
+    <!-- Center circle (partial) -->
+    <circle cx="340" cy="280" r="140" fill="none" stroke="#1a3d28" stroke-width="1.5"/>
+    <!-- Halfway line -->
+    <line x1="0" y1="110" x2="680" y2="110" stroke="#1a3d28" stroke-width="1"/>
+
+    <!-- Player silhouette -->
+    <line x1="108" y1="105" x2="120" y2="148" stroke="#1e7a48" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="104" cy="94" r="12" fill="#1e7a48"/>
+    <line x1="112" y1="118" x2="88"  y2="134" stroke="#1e7a48" stroke-width="5" stroke-linecap="round"/>
+    <line x1="112" y1="118" x2="138" y2="108" stroke="#1e7a48" stroke-width="5" stroke-linecap="round"/>
+    <line x1="120" y1="148" x2="116" y2="188" stroke="#1e7a48" stroke-width="6" stroke-linecap="round"/>
+    <line x1="116" y1="188" x2="100" y2="198" stroke="#1e7a48" stroke-width="6" stroke-linecap="round"/>
+    <line x1="120" y1="148" x2="148" y2="162" stroke="#1e7a48" stroke-width="6" stroke-linecap="round"/>
+    <line x1="148" y1="162" x2="175" y2="148" stroke="#1e7a48" stroke-width="6" stroke-linecap="round"/>
+    <line x1="175" y1="148" x2="192" y2="153" stroke="#1e7a48" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Ball trail -->
+    <path class="trail" d="M205 160 Q290 60 430 50" fill="none" stroke="#2aad6a" stroke-width="1.5" stroke-dasharray="6 5"/>
+
+    <!-- Ball (animated) -->
+    <g class="ball-g">
+      <circle cx="430" cy="50" r="18" fill="#f0ece0" stroke="#ccc9ba" stroke-width="1"/>
+      <polygon points="430,36 440,44 437,56 423,56 420,44" fill="#222" opacity="0.18"/>
+      <polygon points="430,36 418,40 414,52 422,60 438,60 444,52 440,40" fill="none" stroke="#555" stroke-width="0.8" opacity="0.35"/>
+    </g>
+
+    <!-- Data dots -->
+    <circle class="dot1" cx="500" cy="80"  r="3"   fill="#2aad6a"/>
+    <circle class="dot2" cx="520" cy="65"  r="2"   fill="#2aad6a"/>
+    <circle class="dot3" cx="545" cy="90"  r="3.5" fill="#2aad6a"/>
+    <circle class="dot4" cx="562" cy="72"  r="2"   fill="#f59a2e"/>
+    <circle class="dot5" cx="578" cy="88"  r="3"   fill="#2aad6a"/>
+    <circle class="dot6" cx="598" cy="60"  r="2.5" fill="#f59a2e"/>
+    <circle class="dot7" cx="615" cy="80"  r="2"   fill="#2aad6a"/>
+    <circle class="dot8" cx="635" cy="68"  r="3"   fill="#f59a2e"/>
+    <!-- Axes -->
+    <line x1="492" y1="100" x2="648" y2="100" stroke="#1a4a2e" stroke-width="1"/>
+    <line x1="492" y1="55"  x2="492" y2="102" stroke="#1a4a2e" stroke-width="1"/>
+    <!-- Trend line -->
+    <line class="trend" x1="495" y1="95" x2="645" y2="55" stroke="#f59a2e" stroke-width="1" stroke-dasharray="4 4"/>
+
+    <!-- Title group -->
+    <g class="title-g">
+      <text x="210" y="118" font-family="Georgia, serif" font-size="38" font-weight="700" fill="#f0ece0" letter-spacing="-1">Copa em Dados</text>
+      <text x="214" y="148" font-family="monospace" font-size="18" fill="#2aad6a" letter-spacing="2">2026</text>
+      <text x="213" y="170" font-family="sans-serif" font-size="11" fill="#5aad80" letter-spacing="0.5">ML · Data Science · Feature Engineering · Python</text>
+    </g>
+
+    <!-- Badges -->
+    <g class="badge1">
+      <rect x="213" y="183" width="100" height="22" rx="5" fill="#1a3d28" stroke="#2aad6a" stroke-width="0.8"/>
+      <text x="263" y="198" font-family="monospace" font-size="10" fill="#2aad6a" text-anchor="middle">ROC AUC 0.76</text>
+    </g>
+    <g class="badge2">
+      <rect x="322" y="183" width="94" height="22" rx="5" fill="#1a3d28" stroke="#f59a2e" stroke-width="0.8"/>
+      <text x="369" y="198" font-family="monospace" font-size="10" fill="#f59a2e" text-anchor="middle">Accuracy ~70%</text>
+    </g>
+    <g class="badge3">
+      <rect x="425" y="183" width="94" height="22" rx="5" fill="#1a3d28" stroke="#5aad80" stroke-width="0.8"/>
+      <text x="472" y="198" font-family="monospace" font-size="10" fill="#5aad80" text-anchor="middle">End-to-End</text>
+    </g>
+  </g>
+
+  <!-- Border -->
+  <rect x="0" y="0" width="680" height="220" rx="14" fill="none" stroke="#1e7a48" stroke-width="1.5"/>
+</svg>
