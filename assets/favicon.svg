@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Copa em Dados">
+  <rect width="64" height="64" rx="14" fill="#064d2d"/>
+  <path d="M32 9 55 32 32 55 9 32 32 9Z" fill="#ffdf00"/>
+  <circle cx="32" cy="32" r="14" fill="#002776"/>
+  <path d="M20 31c7-6 17-6 24 0" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  <path d="M20 37c7-6 17-6 24 0" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" opacity=".85"/>
+  <circle cx="32" cy="32" r="4" fill="#ffffff"/>
+</svg>
