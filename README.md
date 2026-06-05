@@ -1,19 +1,11 @@
 <div align="center">
 
-<!--
-  Banner animado — funciona no GitHub Pages e em visualizadores que renderizam HTML/SVG.
-  No github.com o GitHub bloqueia animações CSS em SVGs inline por segurança;
-  para ver animado, acesse o site do projeto ou abra o arquivo localmente.
--->
-
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner.svg">
   <img src="assets/banner.svg" alt="Copa em Dados 2026" width="100%"/>
 </picture>
 
 <br/>
-
-# Copa em Dados 2026
 
 ### Ciência de Dados, Machine Learning e previsões para a Copa do Mundo FIFA 2026
 
